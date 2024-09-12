@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('company', 50);
             $table->string('departure_station', 50);
             $table->string('arrival_station', 50);
-            $table->date('departure_time');
-            $table->date('arrival_time');
-            $table->smallInteger('code')->unsigned();
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->integer('code')->unsigned();
             $table->tinyInteger('carriage_number')->unsigned();
             $table->string('on_time')->default('In orario');
             $table->boolean('cancelled')->default(0);
