@@ -27,8 +27,8 @@
                         <td>{{$train -> code}}</td>
                         <td>{{$train -> departure_station}}</td>
                         <td>{{$train -> arrival_station}}</td>
-                        <td>{{Carbon\Carbon::parse($train -> date)->format('d-m-Y')}}</td>
-                        <td>{{Carbon\Carbon::parse($train->departure_time)->format('H:i')}}</td>
+                        <td>{{($train -> date)->format('d-m-Y')}}</td>
+                        <td>{{($train->departure_time)->format('H:i')}}</td>
                         <td>{{$train -> on_time}}</td>
                     @endif
                 </tr>
