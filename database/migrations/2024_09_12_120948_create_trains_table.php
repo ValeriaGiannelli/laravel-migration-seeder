@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('arrival_time');
             $table->smallInteger('code')->unsigned();
             $table->tinyInteger('carriage_number')->unsigned();
-            $table->boolean('on_time')->default(1);
+            $table->string('on_time')->default('In orario');
             $table->boolean('cancelled')->default(0);
             $table->timestamps();
         });
