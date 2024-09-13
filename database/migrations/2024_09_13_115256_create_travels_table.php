@@ -21,6 +21,7 @@ return new class extends Migration
             $table->smallInteger('price')->unsigned();
             $table->string('trip_type');
             $table->boolean('aviable')->default(0);
+            $table->string('slug', 255)->unique();
             $table->timestamps();
         });
     }

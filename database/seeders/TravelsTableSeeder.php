@@ -11,6 +11,9 @@ use App\Models\Travel;
 // importo il faker
 use Faker\Generator as Faker;
 
+// importo str
+use Illuminate\Support\Str;
+
 class TravelsTableSeeder extends Seeder
 {
     /**
@@ -38,8 +41,36 @@ class TravelsTableSeeder extends Seeder
             $new_travel->price = $faker->randomNUmber(4, false);
             $new_travel->trip_type = $faker->randomElements($types)[0];
             $new_travel->aviable = $faker->boolean();
+
+            $new_travel->slug = $this->generateSlug($new_travel->package_name);
             // dump($new_travel);
             $new_travel->save();
         }
+    }
+
+    // funzione per lo slug
+    private function generateSlug($string){
+        // variabile che prenda la stringa e sostituisca gli spazi col trattino
+        $slug = Str::slug($string, '-');
+
+        // variabile aggiuntiva per il ciclo while
+        $original_slug = $slug;
+
+        // se trovo uno slug esistente $exists non sarà null
+        $exists = Travel::where('slug', $slug)->first();
+
+        // inizializzo un contatore
+        $c = 1;
+        // queso ciclo partirà solo se lo slug non è null, quindi c'è
+        while($exists){
+            // concatena il contatore
+            $slug = $original_slug . '-' . $c;
+            // ricontrolla che anche questo slug non esiste
+            $exists = Travel::where('slug', $slug)->first();
+            // se esiste aumenta il contatore di 1
+            $c++;
+        }
+
+        return $slug;
     }
 }
