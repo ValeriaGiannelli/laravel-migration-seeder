@@ -10,6 +10,7 @@
             <a class="nav-link" href="{{ route('about') }}">Chi siamo</a>
             <a class="nav-link" href="{{ route('contacts') }}">Contatti</a>
             <a class="nav-link" href="{{ route('trains') }}">I treni</a>
+            <a class="nav-link" href="{{ route('travels') }}">I viaggi</a>
         </div>
       </div>
     </div>

@@ -29,6 +29,6 @@ class PageController extends Controller
 
     public function travels(){
         $travels=Travel::all();
-        return view('travels', compact('travel'));
+        return view('travels', compact('travels'));
     }
 }

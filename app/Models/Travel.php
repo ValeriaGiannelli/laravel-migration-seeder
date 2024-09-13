@@ -9,4 +9,8 @@ class Travel extends Model
 {
     use HasFactory;
     protected $table = 'travels';
+    protected $casts = [
+        'departure_date' => 'datetime',
+        'return_date'=>'datetime',
+        ];
 }
